@@ -6,64 +6,43 @@
   "configurations": [
     {
       "type": "java",
-      "name": "Launch ParticleAutomata",
-      "request": "launch",
-      "mainClass": "pama1234.processing.al.autometa.particle.ParticleAutomata",
-      "projectName": "processing-Particle-Automata"
-    },
-    {
-      "type": "java",
-      "name": "Launch MemoryArrayNeuronSimulator",
-      "request": "launch",
-      "mainClass": "pama1234.processing.al.corewars.MemoryArrayNeuronSimulator",
-      "projectName": "processing-Particle-Automata"
-    },
-    {
-      "type": "java",
-      "name": "Launch Tools",
-      "request": "launch",
-      "mainClass": "pama1234.math.Tools",
-      "projectName": "processing-Particle-Automata"
-    },
-    {
-      "type": "java",
-      "name": "L ServerApp",
-      "request": "launch",
-      "mainClass": "pama1234.processing.net.example.ServerApp",
-      "projectName": "processing-Particle-Automata"
-    },
-    {
-      "type": "java",
-      "name": "L ClientApp",
-      "request": "launch",
-      "mainClass": "pama1234.processing.net.example.ClientApp",
-      "projectName": "processing-Particle-Automata"
-    },
-    {
-      "type": "java",
-      "name": "L net MainApp",
-      "request": "launch",
-      "mainClass": "pama1234.processing.net.example.MainApp",
-      "projectName": "processing-Particle-Automata"
-    },
-    {
-      "type": "java",
-      "name": "L Current File",
+      "name": "Launch Current File",
       "request": "launch",
       "mainClass": "${file}"
     },
     {
       "type": "java",
-      "name": "L TestApp_1",
+      "name": "Launch ClientApp",
       "request": "launch",
-      "mainClass": "pama1234.processing.net.example.TestApp_1",
+      "mainClass": "pama1234.processing.mc.ai.net.ClientApp",
       "projectName": "processing-Particle-Automata"
     },
     {
       "type": "java",
-      "name": "L ServerApp",
+      "name": "Launch ServerApp",
       "request": "launch",
-      "mainClass": "pama1234.processing.net.example.ServerApp",
+      "mainClass": "pama1234.processing.mc.ai.net.ServerApp",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "Launch TestApp0001",
+      "request": "launch",
+      "mainClass": "pama1234.processing.mc.ai.test.TestApp0001",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "Launch UtilApp",
+      "request": "launch",
+      "mainClass": "pama1234.processing.util.app.UtilApp",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "Launch TextArea",
+      "request": "launch",
+      "mainClass": "pama1234.processing.util.element.component.TextArea",
       "projectName": "processing-Particle-Automata"
     }
   ]

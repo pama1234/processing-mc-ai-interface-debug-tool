@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 import pama1234.processing.mc.ai.Const;
+import pama1234.processing.mc.ai.net.util.SocketSet;
 import pama1234.processing.mc.ai.test.TestBlankComponent;
 import pama1234.processing.util.app.UtilApp;
 

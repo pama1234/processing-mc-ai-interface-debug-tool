@@ -1,6 +1,8 @@
 package pama1234.processing.mc.ai.net;
 
 import pama1234.processing.mc.ai.Const;
+import pama1234.processing.mc.ai.net.util.ScrollBar;
+import pama1234.processing.mc.ai.net.util.SocketSet;
 import pama1234.processing.mc.ai.test.TestBlankComponent;
 import pama1234.processing.util.app.UtilApp;
 
@@ -21,7 +23,7 @@ public class ClientApp extends UtilApp{
   @Override
   public void settings() {
     super.settings();
-    noSmooth();
+    // noSmooth();
   }
   @Override
   public void init() {
@@ -69,9 +71,9 @@ public class ClientApp extends UtilApp{
       case SocketSet.unconnected: {}
         break;
       case SocketSet.connected: {
-        // for(int i=0;i<18;i++) s.putF(0);
-        if((frameCount/120)%2==0) data[3].data=0;
-        else data[3].data=0.5f;
+        for(int i=0;i<18;i++) s.putF(0);
+        // if((frameCount/120)%2==0) data[3].data=0;
+        // else data[3].data=0.5f;
         for(int i=0;i<data.length;i++) s.putF(data[i].data);
         s.write();
         s.read(Const.bufferSize);

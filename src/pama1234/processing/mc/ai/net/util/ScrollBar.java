@@ -1,11 +1,11 @@
-package pama1234.processing.mc.ai.net;
+package pama1234.processing.mc.ai.net.util;
 
 import pama1234.math.Tools;
 import pama1234.processing.util.app.UtilApp;
 import pama1234.processing.util.element.component.BlankComponent;
 
 public class ScrollBar extends BlankComponent{
-  float data,hist;
+  public float data,hist;
   @Override
   public String getName() {
     return super.getName()+" data="+data;
@@ -16,7 +16,9 @@ public class ScrollBar extends BlankComponent{
   @Override
   public void initGraphics() {
     super.initGraphics();
+    g.endDraw();
     g.smooth();
+    g.beginDraw();
     // g.stroke();
   }
   @Override

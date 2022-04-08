@@ -1,4 +1,4 @@
-package pama1234.processing.mc.ai.net;
+package pama1234.processing.mc.ai.net.util;
 
 import java.io.IOException;
 import java.net.ServerSocket;
