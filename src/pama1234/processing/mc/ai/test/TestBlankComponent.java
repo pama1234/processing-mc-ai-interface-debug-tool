@@ -1,12 +1,12 @@
-package pama1234.processing.mc.ai.net;
+package pama1234.processing.mc.ai.test;
 
+import pama1234.processing.mc.ai.Const;
 import pama1234.processing.util.app.UtilApp;
 import pama1234.processing.util.element.component.BlankComponent;
 
 public class TestBlankComponent extends BlankComponent{
-  public static final int width=640,height=360,t=1;
   public TestBlankComponent(UtilApp p) {
-    super(p,0,0,width,height);
+    super(p,0,0,Const.width,Const.height);
   }
   float pmouseX,pmouseY;
   @Override

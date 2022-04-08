@@ -3,6 +3,8 @@ package pama1234.processing.mc.ai.net;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+import pama1234.processing.mc.ai.Const;
+import pama1234.processing.mc.ai.test.TestBlankComponent;
 import pama1234.processing.util.app.UtilApp;
 
 public class ServerApp extends UtilApp{
@@ -18,7 +20,7 @@ public class ServerApp extends UtilApp{
     }catch(IOException e) {
       e.printStackTrace();
     }
-    s=new SocketSet(MainApp.bufferSize);
+    s=new SocketSet(Const.bufferSize);
   }
   @Override
   public void settings() {
@@ -27,7 +29,7 @@ public class ServerApp extends UtilApp{
   }
   @Override
   public void init() {
-    c=new TestBlankComponent[TestBlankComponent.t];
+    c=new TestBlankComponent[Const.t];
     for(int i=0;i<c.length;i++) {
       c[i]=new TestBlankComponent(this);
       c[i].refresh();

@@ -1,5 +1,7 @@
 package pama1234.processing.mc.ai.net;
 
+import pama1234.processing.mc.ai.Const;
+import pama1234.processing.mc.ai.test.TestBlankComponent;
 import pama1234.processing.util.app.UtilApp;
 
 public class ClientApp extends UtilApp{
@@ -13,7 +15,7 @@ public class ClientApp extends UtilApp{
   public ClientApp(String host,int port) {
     this.host=host;
     this.port=port;
-    s=new SocketSet(MainApp.bufferSize);
+    s=new SocketSet(Const.bufferSize);
     s.connect(host,port);
   }
   @Override
@@ -23,7 +25,7 @@ public class ClientApp extends UtilApp{
   }
   @Override
   public void init() {
-    c=new TestBlankComponent[TestBlankComponent.t];
+    c=new TestBlankComponent[Const.t];
     for(int i=0;i<c.length;i++) {
       c[i]=new TestBlankComponent(this);
       c[i].refresh();
@@ -72,7 +74,7 @@ public class ClientApp extends UtilApp{
         else data[3].data=0.5f;
         for(int i=0;i<data.length;i++) s.putF(data[i].data);
         s.write();
-        s.read(MainApp.bufferSize);
+        s.read(Const.bufferSize);
         // x=s.getF();
         // y=s.getF();
         // button=s.getI();

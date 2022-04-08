@@ -1,10 +1,10 @@
-package pama1234.processing.mc.ai.net;
+package pama1234.processing.mc.ai.test;
 
 import java.nio.ByteBuffer;
 
 import pama1234.processing.util.app.UtilApp;
 
-public class TestApp_1 extends UtilApp{
+public class TestApp0001 extends UtilApp{
   TestBlankComponent c;
   ByteBuffer b;
   @Override
@@ -45,6 +45,6 @@ public class TestApp_1 extends UtilApp{
   }
   public static void main(String[] args) {
     System.setProperty("sun.java2d.uiScale","1");
-    new TestApp_1().run();
+    new TestApp0001().run();
   }
 }
