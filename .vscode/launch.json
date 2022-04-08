@@ -1,0 +1,70 @@
+{
+  // 使用 IntelliSense 了解相关属性。 
+  // 悬停以查看现有属性的描述。
+  // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Launch ParticleAutomata",
+      "request": "launch",
+      "mainClass": "pama1234.processing.al.autometa.particle.ParticleAutomata",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "Launch MemoryArrayNeuronSimulator",
+      "request": "launch",
+      "mainClass": "pama1234.processing.al.corewars.MemoryArrayNeuronSimulator",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "Launch Tools",
+      "request": "launch",
+      "mainClass": "pama1234.math.Tools",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "L ServerApp",
+      "request": "launch",
+      "mainClass": "pama1234.processing.net.example.ServerApp",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "L ClientApp",
+      "request": "launch",
+      "mainClass": "pama1234.processing.net.example.ClientApp",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "L net MainApp",
+      "request": "launch",
+      "mainClass": "pama1234.processing.net.example.MainApp",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "L Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "L TestApp_1",
+      "request": "launch",
+      "mainClass": "pama1234.processing.net.example.TestApp_1",
+      "projectName": "processing-Particle-Automata"
+    },
+    {
+      "type": "java",
+      "name": "L ServerApp",
+      "request": "launch",
+      "mainClass": "pama1234.processing.net.example.ServerApp",
+      "projectName": "processing-Particle-Automata"
+    }
+  ]
+}
