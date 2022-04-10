@@ -92,7 +92,7 @@ public class ClientApp extends UtilApp{
     }
   }
   private void getImage() {
-    for(int i=0;i<c.length;i++) c[i].fromBuffer(s.inBuffer);
+    for(int i=0;i<c.length;i++) c[i].fromBufferVFlip(s.inBuffer);
   }
   @Override
   public void mousePressed() {

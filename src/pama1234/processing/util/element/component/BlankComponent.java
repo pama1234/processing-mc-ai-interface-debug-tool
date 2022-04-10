@@ -50,6 +50,22 @@ public abstract class BlankComponent extends PointEntity<PathPoint> implements B
       System.out.println(e+" "+in);
     }
   }
+  public void fromBufferVFlip(ByteBuffer in) {
+    // point.fromBuffer(in);
+    WritableRaster raster=((BufferedImage)g.image).getRaster();
+    int[] tia=new int[4];
+    tia[3]=0xff;
+    try {
+      for(int i=0;i<g.height;i++) for(int j=0;j<g.width;j++) {
+        tia[0]=in.get()&0xff;
+        tia[1]=in.get()&0xff;
+        tia[2]=in.get()&0xff;
+        raster.setPixel(j,g.height-1-i,tia);
+      }
+    }catch(BufferUnderflowException e) {
+      System.out.println(e+" "+in);
+    }
+  }
   @Override
   // public ByteBuffer toBuffer(ByteBuffer in,int offset) {
   public ByteBuffer toBuffer(ByteBuffer in) {
