@@ -22,6 +22,10 @@ public class SocketSet{
     inBuffer=ByteBuffer.allocate(size);
     outBuffer=ByteBuffer.allocate(size);
   }
+  public SocketSet(int inSize,int outSize) {
+    inBuffer=ByteBuffer.allocate(inSize);
+    outBuffer=ByteBuffer.allocate(outSize);
+  }
   public void connect(String host,int port) {
     try {
       socket=new Socket(host,port);

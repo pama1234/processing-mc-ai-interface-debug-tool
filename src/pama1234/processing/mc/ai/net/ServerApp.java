@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 
 import pama1234.processing.mc.ai.Const;
+import pama1234.processing.mc.ai.net.util.ScrollBar;
 import pama1234.processing.mc.ai.net.util.SocketSet;
 import pama1234.processing.mc.ai.test.TestBlankComponent;
 import pama1234.processing.util.app.UtilApp;
@@ -13,6 +14,7 @@ public class ServerApp extends UtilApp{
   public SocketSet s;
   public int port;
   public Thread acceptThread;
+  public ScrollBar[] data=new ScrollBar[18];
   public TestBlankComponent[] c;
   public ServerApp(int port) {
     this.port=port;
@@ -21,7 +23,7 @@ public class ServerApp extends UtilApp{
     }catch(IOException e) {
       e.printStackTrace();
     }
-    s=new SocketSet(Const.bufferSize);
+    s=new SocketSet(Const.controllerSize,Const.imageBufferSize);
   }
   @Override
   public void settings() {
@@ -30,35 +32,41 @@ public class ServerApp extends UtilApp{
   }
   @Override
   public void init() {
-    c=new TestBlankComponent[Const.t];
+    c=new TestBlankComponent[Const.imgCount];
     for(int i=0;i<c.length;i++) {
       c[i]=new TestBlankComponent(this);
       c[i].refresh();
       c[i].doBackground=false;
       gccenter.add.add(c[i]);
     }
+    pcenter.minDisplayDist=pcenter.minDist=4;
+    for(int i=0;i<data.length;i++) {
+      data[i]=new ScrollBar(this,0,i*10,256,8);
+      data[i].refresh();
+      pcenter.add.add(data[i]);
+    }
   }
   @Override
   public void display() {
-    int ts;
-    if(mousePressed) {
-      switch(mouseButton) {
-        case LEFT:
-          stroke(0xc0ff0000);
-          break;
-        case CENTER:
-          stroke(0xc000ff00);
-          break;
-        case RIGHT:
-          stroke(0xc00000ff);
-          break;
-      }
-      ts=28;
-    }else {
-      stroke(0xc0ffffff);
-      ts=32;
-    }
-    ellipse(cam.mouseX,cam.mouseY,ts,ts);
+    // int ts;
+    // if(mousePressed) {
+    //   switch(mouseButton) {
+    //     case LEFT:
+    //       stroke(0xc0ff0000);
+    //       break;
+    //     case CENTER:
+    //       stroke(0xc000ff00);
+    //       break;
+    //     case RIGHT:
+    //       stroke(0xc00000ff);
+    //       break;
+    //   }
+    //   ts=28;
+    // }else {
+    //   stroke(0xc0ffffff);
+    //   ts=32;
+    // }
+    // ellipse(cam.mouseX,cam.mouseY,ts,ts);
   }
   @Override
   public void update() {
@@ -76,16 +84,17 @@ public class ServerApp extends UtilApp{
       }
         break;
       case SocketSet.connected: {
-        s.read();
+        s.read(18*4);
+        for(int i=0;i<data.length;i++) data[i].data=s.getF();
         if(s.inLength==0) break;
-        s.putF(cam.mouseX);
-        s.putF(cam.mouseY);
-        s.putI(mousePressed?mouseButton:0);
-        s.putF(cam.x1());
-        s.putF(cam.y1());
-        s.putF(cam.w());
-        s.putF(cam.h());
-        for(int i=0;i<c.length;i++) c[i].toBuffer(s.outBuffer);
+        // s.putF(cam.mouseX);
+        // s.putF(cam.mouseY);
+        // s.putI(mousePressed?mouseButton:0);
+        // s.putF(cam.x1());
+        // s.putF(cam.y1());
+        // s.putF(cam.w());
+        // s.putF(cam.h());
+        putImage();
         s.write();
       }
         break;
@@ -94,6 +103,9 @@ public class ServerApp extends UtilApp{
       default:
         throw new IllegalArgumentException("Unexpected value: "+s.state);
     }
+  }
+  private void putImage() {
+    for(int i=0;i<c.length;i++) c[i].toBuffer(s.outBuffer);
   }
   @Override
   public void exitActual() {

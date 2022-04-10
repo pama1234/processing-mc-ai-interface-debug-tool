@@ -17,7 +17,7 @@ public class ClientApp extends UtilApp{
   public ClientApp(String host,int port) {
     this.host=host;
     this.port=port;
-    s=new SocketSet(Const.bufferSize);
+    s=new SocketSet(Const.imageBufferSize,Const.controllerSize);
     s.connect(host,port);
   }
   @Override
@@ -27,7 +27,7 @@ public class ClientApp extends UtilApp{
   }
   @Override
   public void init() {
-    c=new TestBlankComponent[Const.t];
+    c=new TestBlankComponent[Const.imgCount];
     for(int i=0;i<c.length;i++) {
       c[i]=new TestBlankComponent(this);
       c[i].refresh();
@@ -71,12 +71,12 @@ public class ClientApp extends UtilApp{
       case SocketSet.unconnected: {}
         break;
       case SocketSet.connected: {
-        for(int i=0;i<18;i++) s.putF(0);
+        // for(int i=0;i<18;i++) s.putF(0);
         // if((frameCount/120)%2==0) data[3].data=0;
         // else data[3].data=0.5f;
         for(int i=0;i<data.length;i++) s.putF(data[i].data);
         s.write();
-        s.read(Const.bufferSize);
+        s.read(Const.imageBufferSize);
         // x=s.getF();
         // y=s.getF();
         // button=s.getI();
@@ -84,12 +84,15 @@ public class ClientApp extends UtilApp{
         // camY=s.getF();
         // camW=s.getF();
         // camH=s.getF();
-        for(int i=0;i<c.length;i++) c[i].fromBuffer(s.inBuffer);
+        getImage();
       }
         break;
       default:
         throw new IllegalArgumentException("Unexpected value: "+s.state);
     }
+  }
+  private void getImage() {
+    for(int i=0;i<c.length;i++) c[i].fromBuffer(s.inBuffer);
   }
   @Override
   public void mousePressed() {
